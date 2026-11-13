@@ -45,6 +45,14 @@ plugin_manager install_bundle <本目录绝对路径>
 plugin_manager remove_bundle dsh-session-delete-row
 ```
 
+## 改名时注意
+
+包名同时出现在三处，必须一起改，否则 Host 能加载而浏览器端模块会被丢弃（表现为重启后按钮消失）：
+
+1. `package.json` 的 `name`；
+2. `cordis.patch.yml` 里 `insert.name`；
+3. `client.js` 中 `window.__ModuleLoader__.load({ id })`。
+
 ## 实现
 
 - Host 半 `index.js`：注册 `POST /session-delete/preview` 与 `POST /session-delete/delete`。两条路由都用 `ctx.connection.admit()` 做浏览器凭据与 Host/Origin 校验，只接受 owner 主体的请求。
