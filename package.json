@@ -1,0 +1,47 @@
+{
+  "name": "dsh-session-delete-row",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DeepSeek Harness (DSH) plugin: a sidebar session-row delete button that permanently removes the session, its subagent sessions, logs, and caches.",
+  "license": "MIT",
+  "author": "meowOmeow101",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meowOmeow101/dsh-session-delete-row.git"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "session",
+    "delete"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  }
+}

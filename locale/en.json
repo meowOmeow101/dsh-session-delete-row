@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Delete session button",
+    "description": "Adds a delete button to each sidebar session row that permanently removes that session."
+  }
+}
